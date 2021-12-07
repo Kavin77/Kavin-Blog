@@ -1,0 +1,22 @@
+<div class="container">
+	<h1 class="text-center">Login</h1>
+
+	<%= form_with(scope: :session, url: login_path, local: true) do |f| %>
+	<div>
+		<p>
+			<%= f.label :email %><br>
+			<%= f.email_field :email , class: "form-control rounded shadow w-50", placeholde:"Enter Your Email" %>
+		</p>
+
+		<p>
+			<%= f.label :password %><br>
+			<%= f.password_field :password, class: "form-control rounded shadow w-50", placeholde:"Enter Your Password" %>
+		</p>
+
+		<p>
+			<%= f.submit "Log In", class: "btn btn-outline-success" %> 
+		</p>
+	</div>
+
+	<% end %>
+</div>

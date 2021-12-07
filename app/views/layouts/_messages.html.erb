@@ -1,0 +1,9 @@
+<% flash.each do |name,msg| %>
+    <div class="text-center w-50 mx-auto alert alert-<%= name == 'notice' ? 'success' : 'danger' %>">
+        <%= msg %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+    </div> 
+<% end %>

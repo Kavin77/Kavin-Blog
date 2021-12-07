@@ -1,0 +1,20 @@
+<div class="container">
+	<h1 class="text-center">Article</h1>
+
+	<div class="text-left">
+		<%= link_to gravatar_for(@article.user), user_path(@article.user) %>
+		<div class="w-50 mx-auto">
+			<p><strong>Title : </strong><%= @article.title %></p>
+			<p><strong>Description : </strong><%= @article.description %></p>
+			<p><strong>Created By : </strong><%= @article.user.username if @article.user %><small> (<%= time_ago_in_words(@article.created_at) %> ago)</small></p>
+
+			<p>
+				<% if logged_in? && (@article.user == current_user || current_user.admin? ) %>
+					<%= link_to 'Edit', edit_article_path(@article), class: "btn btn-warning" %>
+					<%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: "Are You Sure?" } , class: "btn btn-danger" %>
+				<% end %>
+				<%= link_to 'Return', articles_path , class: "btn btn-primary" %>
+			</p>
+		</div>
+	</div>
+</div>
